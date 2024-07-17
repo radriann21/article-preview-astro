@@ -1,4 +1,8 @@
-<section class="basis-3/5 py-12 px-6 lg:p-8">
+---
+import Tooltip from "./Tooltip.astro"
+---
+
+<section class="basis-3/5 py-8 px-6 lg:p-8">
   <section>
     <h1 class="font-global text-lg lg:text-xl font-bold text-very-dark-grayish-blue">
       Shift the overall look and feel by adding these wonderful touches to furniture in your home
@@ -7,18 +11,32 @@
       Ever been in a room and felt like something was missing? Perhaps it felt slightly bare and uninviting. I've got some simple tips to help you make any room feel complete.
     </p>
 
-    <section class="mt-8 lg:mt-4 flex items-center justify-between w-full">
+    <section class="mt-8 lg:mt-6 flex items-center justify-between w-full relative">
+      <Tooltip />
       <div class="flex gap-4">
         <picture class="w-10 h-10 lg:w-12 lg:h-12">
           <img class="w-full h-full rounded-full" src="/assets/images/avatar-michelle.jpg" alt="user avatar">
         </picture>
         <section>
-          <b class="font-global text-sm block">Michelle Appleton</b>
-          <span class="text-sm text-desaturated-dark-blue">28 Jun 2020</span>
+          <b class="font-global text-sm text-very-dark-grayish-blue block">Michelle Appleton</b>
+          <span class="text-sm text-desaturated-dark-blue">28 Jun 2020</span> 
         </section>
       </div>
-      <div>share</div>
+      <button class="group w-10 h-10 rounded-full bg-light-grayish-blue transition-colors duration-300 ease-in-out hover:bg-very-dark-grayish-blue" id="share">
+          <svg class="group-hover:stroke-white m-auto w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M7.217 10.907a2.25 2.25 0 1 0 0 2.186m0-2.186c.18.324.283.696.283 1.093s-.103.77-.283 1.093m0-2.186 9.566-5.314m-9.566 7.5 9.566 5.314m0 0a2.25 2.25 0 1 0 3.935 2.186 2.25 2.25 0 0 0-3.935-2.186Zm0-12.814a2.25 2.25 0 1 0 3.933-2.185 2.25 2.25 0 0 0-3.933 2.185Z" />
+        </svg>        
+      </button>
     </section>
 
   </section>
 </section>
+
+<script>
+  const tooltip = document.querySelector('#tooltip')
+  const shareBtn = document.querySelector('#share')
+
+  shareBtn.addEventListener('click', () => {
+    tooltip.classList.toggle('opacity-0')
+  })
+</script>
